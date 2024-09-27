@@ -53,7 +53,7 @@ export class UserService implements OnModuleInit {
             await this.qeHelper.dropExistingCollection(this.encryptedMongoClient, this.keyVaultDatabaseName);
 
 
-            const encryptedFieldsMap = this.fieldMapper();
+            const encryptedFieldsMap = await this.fieldMapper();
             const clientEncryption = this.qeHelper.getClientEncryption(
                 this.encryptedMongoClient,
                 this.autoEncryptionOptions
